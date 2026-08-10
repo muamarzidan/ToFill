@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tes Form Lamaran / Pendaftaran - AutoApply</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; padding: 2rem; max-width: 600px; margin: auto; }
+    .card { background: #1e293b; padding: 1.5rem; border-radius: 12px; border: 1px solid #334155; }
+    h1 { color: #38bdf8; font-size: 1.5rem; margin-top: 0; }
+    .field { margin-bottom: 1rem; }
+    label { display: block; font-weight: 600; margin-bottom: 0.25rem; font-size: 0.875rem; color: #cbd5e1; }
+    input, textarea, select { width: 100%; padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: white; font-size: 0.875rem; box-sizing: border-box; }
+    button { background: #0284c7; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; cursor: pointer; }
+    button:hover { background: #0369a1; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Formulir Pendaftaran Rekrutmen Tim R&D</h1>
+    <p style="font-size: 0.85rem; color: #94a3b8;">Halaman ini digunakan untuk menguji fungsionalitas ekstensi browser AutoApply.</p>
+    
+    <form id="testForm">
+      <div class="field">
+        <label for="fullNameInput">Nama Lengkap</label>
+        <input type="text" id="fullNameInput" placeholder="Masukkan nama lengkap Anda" />
+      </div>
+
+      <div class="field">
+        <label for="emailInput">Alamat Email / Surel</label>
+        <input type="email" id="emailInput" placeholder="email@domain.com" />
+      </div>
+
+      <div class="field">
+        <label for="phoneInput">Nomor Telepon / WhatsApp</label>
+        <input type="tel" id="phoneInput" placeholder="08xxxxxxxxxx" />
+      </div>
+
+      <div class="field">
+        <label for="univInput">Nama Universitas / Perguruan Tinggi</label>
+        <input type="text" id="univInput" placeholder="Nama Kampus Anda" />
+      </div>
+
+      <div class="field">
+        <label for="nimInput">NIM (Nomor Induk Mahasiswa)</label>
+        <input type="text" id="nimInput" placeholder="NIM" />
+      </div>
+
+      <div class="field">
+        <label for="majorInput">Program Studi / Jurusan</label>
+        <input type="text" id="majorInput" placeholder="Jurusan" />
+      </div>
+
+      <div class="field">
+        <label for="githubInput">Tautan Profil GitHub</label>
+        <input type="url" id="githubInput" placeholder="https://github.com/..." />
+      </div>
+
+      <div class="field">
+        <label for="linkedinInput">Tautan Profil LinkedIn</label>
+        <input type="url" id="linkedinInput" placeholder="https://linkedin.com/in/..." />
+      </div>
+
+      <div class="field">
+        <label for="summaryInput">Deskripsi Diri / Ringkasan Bio</label>
+        <textarea id="summaryInput" rows="3" placeholder="Ceritakan singkat tentang diri Anda"></textarea>
+      </div>
+
+      <button type="submit">Kirim Pendaftaran</button>
+    </form>
+  </div>
+</body>
+</html>

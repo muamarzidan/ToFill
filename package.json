@@ -1,0 +1,46 @@
+{
+  "name": "tofill",
+  "displayName": "ToFill - Auto Fill Form of Your Job",
+  "version": "0.0.1",
+  "description": "Browser extension to automate job, internship, and committee application forms.",
+  "packageManager": "npm@10.0.0",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "package": "plasmo package"
+  },
+  "dependencies": {
+    "@plasmohq/storage": "^1.14.0",
+    "lucide-react": "^0.474.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "plasmo": "^0.89.4",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
+  },
+  "manifest": {
+    "permissions": [
+      "storage",
+      "activeTab",
+      "tabs"
+    ],
+    "host_permissions": [
+      "https://*/*",
+      "http://*/*"
+    ]
+  },
+  "optionalDependencies": {
+    "@img/sharp-win32-x64": "^0.35.3"
+  },
+  "overrides": {
+    "sharp": "^0.33.5"
+  }
+}
