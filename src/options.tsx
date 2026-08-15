@@ -86,10 +86,7 @@ export default function OptionsIndex() {
       <header className="border-b border-zinc-200 bg-white sticky top-0 z-30">
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded bg-zinc-900 text-white flex items-center justify-center text-xs font-mono font-bold">
-                A
-              </div>
+            <div className="flex items-center">
               <span className="font-semibold text-sm tracking-tight text-zinc-900">ToFill</span>
             </div>
             <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-100 text-zinc-600 border border-zinc-200">
@@ -98,7 +95,7 @@ export default function OptionsIndex() {
           </div>
           {/* Action Bar */}
           <div className="flex items-center gap-2">
-            <button
+            {/* <button
               onClick={handleExportJSON}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white border border-zinc-300 text-zinc-700 text-xs font-medium hover:bg-zinc-50 hover:text-zinc-900 transition"
             >
@@ -110,7 +107,7 @@ export default function OptionsIndex() {
               <Upload className="w-3.5 h-3.5 text-zinc-500" />
               Import
               <input type="file" accept=".json" onChange={handleImportJSON} className="hidden" />
-            </label>
+            </label> */}
 
             <button
               onClick={handleSave}
@@ -158,7 +155,7 @@ export default function OptionsIndex() {
                 onClick={() => setActiveTab("personal")}
                 className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-md text-xs transition-all ${
                   activeTab === "personal"
-                    ? "bg-zinc-100 text-zinc-950 font-semibold border-l-2 border-zinc-950 pl-2.5"
+                    ? "bg-zinc-100 text-zinc-950 font-semibold"
                     : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50"
                 }`}
               >
@@ -170,7 +167,7 @@ export default function OptionsIndex() {
                 onClick={() => setActiveTab("academic")}
                 className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-md text-xs transition-all ${
                   activeTab === "academic"
-                    ? "bg-zinc-100 text-zinc-950 font-semibold border-l-2 border-zinc-950 pl-2.5"
+                    ? "bg-zinc-100 text-zinc-950 font-semibold"
                     : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50"
                 }`}
               >
@@ -182,7 +179,7 @@ export default function OptionsIndex() {
                 onClick={() => setActiveTab("professional")}
                 className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-md text-xs transition-all ${
                   activeTab === "professional"
-                    ? "bg-zinc-100 text-zinc-950 font-semibold border-l-2 border-zinc-950 pl-2.5"
+                    ? "bg-zinc-100 text-zinc-950 font-semibold"
                     : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50"
                 }`}
               >
@@ -222,7 +219,6 @@ export default function OptionsIndex() {
                       <h2 className="text-sm font-semibold text-zinc-900">Identitas Pribadi</h2>
                       <p className="text-xs text-zinc-500">Informasi identitas mendasar untuk pengisian formulir.</p>
                     </div>
-                    <span className="text-[10px] font-mono text-zinc-400">ProfileData.personal</span>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -232,7 +228,7 @@ export default function OptionsIndex() {
                         type="text"
                         value={profile.fullName || ""}
                         onChange={(e) => handleInputChange("fullName", e.target.value)}
-                        placeholder="Budi Santoso"
+                        placeholder="contoh: Budi Santoso"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -242,7 +238,27 @@ export default function OptionsIndex() {
                         type="text"
                         value={profile.nickname || ""}
                         onChange={(e) => handleInputChange("nickname", e.target.value)}
-                        placeholder="Budi"
+                        placeholder="contoh: Budi"
+                        className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-zinc-700 mb-1">NIK (Nomor Induk Kependudukan / KTP)</label>
+                      <input
+                        type="text"
+                        value={profile.nik || ""}
+                        onChange={(e) => handleInputChange("nik", e.target.value)}
+                        placeholder="contoh: 3214123456789012"
+                        className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-zinc-700 mb-1">Umur / Usia</label>
+                      <input
+                        type="text"
+                        value={profile.age || ""}
+                        onChange={(e) => handleInputChange("age", e.target.value)}
+                        placeholder="contoh: 21"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -252,7 +268,7 @@ export default function OptionsIndex() {
                         type="email"
                         value={profile.email || ""}
                         onChange={(e) => handleInputChange("email", e.target.value)}
-                        placeholder="email@example.com"
+                        placeholder="contoh: budi@gmail.com"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -262,7 +278,7 @@ export default function OptionsIndex() {
                         type="tel"
                         value={profile.phone || ""}
                         onChange={(e) => handleInputChange("phone", e.target.value)}
-                        placeholder="081234567890"
+                        placeholder="contoh: 081234567890"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -272,7 +288,7 @@ export default function OptionsIndex() {
                         type="text"
                         value={profile.birthPlace || ""}
                         onChange={(e) => handleInputChange("birthPlace", e.target.value)}
-                        placeholder="Jakarta"
+                        placeholder="contoh: Jakarta"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -292,7 +308,7 @@ export default function OptionsIndex() {
                       rows={3}
                       value={profile.address || ""}
                       onChange={(e) => handleInputChange("address", e.target.value)}
-                      placeholder="Jl. Telekomunikasi No. 1, Bandung"
+                      placeholder="contoh: Jl. Tofil No. 1, Bandung, Jawa Barat"
                       className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                     />
                   </div>
@@ -306,7 +322,6 @@ export default function OptionsIndex() {
                       <h2 className="text-sm font-semibold text-zinc-900">Pendidikan & Akademik</h2>
                       <p className="text-xs text-zinc-500">Riwayat studi perguruan tinggi.</p>
                     </div>
-                    <span className="text-[10px] font-mono text-zinc-400">ProfileData.academic</span>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -316,7 +331,7 @@ export default function OptionsIndex() {
                         type="text"
                         value={profile.university || ""}
                         onChange={(e) => handleInputChange("university", e.target.value)}
-                        placeholder="Universitas Telkom"
+                        placeholder="contoh: Universitas Tofill"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -326,7 +341,7 @@ export default function OptionsIndex() {
                         type="text"
                         value={profile.studentId || ""}
                         onChange={(e) => handleInputChange("studentId", e.target.value)}
-                        placeholder="1301210001"
+                        placeholder="contoh: 1301210001"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -336,7 +351,7 @@ export default function OptionsIndex() {
                         type="text"
                         value={profile.faculty || ""}
                         onChange={(e) => handleInputChange("faculty", e.target.value)}
-                        placeholder="Fakultas Informatika"
+                        placeholder="contoh: Fakultas Informatika"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -346,7 +361,7 @@ export default function OptionsIndex() {
                         type="text"
                         value={profile.major || ""}
                         onChange={(e) => handleInputChange("major", e.target.value)}
-                        placeholder="S1 Informatika"
+                        placeholder="contoh: S1 Sistem Informasi"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -356,7 +371,7 @@ export default function OptionsIndex() {
                         type="text"
                         value={profile.semester || ""}
                         onChange={(e) => handleInputChange("semester", e.target.value)}
-                        placeholder="6"
+                        placeholder="contoh: 6"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -366,7 +381,7 @@ export default function OptionsIndex() {
                         type="text"
                         value={profile.gpa || ""}
                         onChange={(e) => handleInputChange("gpa", e.target.value)}
-                        placeholder="3.85"
+                        placeholder="contoh: 3.85"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -376,7 +391,7 @@ export default function OptionsIndex() {
                         type="text"
                         value={profile.startYear || ""}
                         onChange={(e) => handleInputChange("startYear", e.target.value)}
-                        placeholder="2021"
+                        placeholder="contoh: 2021"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -386,7 +401,7 @@ export default function OptionsIndex() {
                         type="text"
                         value={profile.gradYear || ""}
                         onChange={(e) => handleInputChange("gradYear", e.target.value)}
-                        placeholder="2025"
+                        placeholder="contoh: 2025"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -398,10 +413,9 @@ export default function OptionsIndex() {
                 <div className="space-y-6">
                   <div className="border-b border-zinc-100 pb-3 flex items-center justify-between">
                     <div>
-                      <h2 className="text-sm font-semibold text-zinc-900">Profil Profesional & Portfolio</h2>
-                      <p className="text-xs text-zinc-500">Tautan jejaring profesional dan ringkasan keahlian.</p>
+                      <h2 className="text-sm font-semibold text-zinc-900">Profil Profesional & Portofolio</h2>
+                      <p className="text-xs text-zinc-500">Tautan jejaring profesional, sosial media, dan riwayat pengalaman.</p>
                     </div>
-                    <span className="text-[10px] font-mono text-zinc-400">ProfileData.professional</span>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -411,7 +425,7 @@ export default function OptionsIndex() {
                         type="url"
                         value={profile.linkedin || ""}
                         onChange={(e) => handleInputChange("linkedin", e.target.value)}
-                        placeholder="https://linkedin.com/in/username"
+                        placeholder="contoh: https://linkedin.com/in/username"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
@@ -421,21 +435,50 @@ export default function OptionsIndex() {
                         type="url"
                         value={profile.github || ""}
                         onChange={(e) => handleInputChange("github", e.target.value)}
-                        placeholder="https://github.com/username"
+                        placeholder="contoh: https://github.com/username"
                         className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                       />
                     </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-zinc-700 mb-1">URL Portofolio / Website</label>
-                    <input
-                      type="url"
-                      value={profile.portfolio || ""}
-                      onChange={(e) => handleInputChange("portfolio", e.target.value)}
-                      placeholder="https://mywebsite.dev"
-                      className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
-                    />
+                    <div>
+                      <label className="block text-xs font-medium text-zinc-700 mb-1">URL Portofolio / Website</label>
+                      <input
+                        type="url"
+                        value={profile.portfolio || ""}
+                        onChange={(e) => handleInputChange("portfolio", e.target.value)}
+                        placeholder="contoh: https://myportfolio.dev"
+                        className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-zinc-700 mb-1">Instagram</label>
+                      <input
+                        type="text"
+                        value={profile.instagram || ""}
+                        onChange={(e) => handleInputChange("instagram", e.target.value)}
+                        placeholder="contoh: https://instagram.com/username atau @username"
+                        className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-zinc-700 mb-1">X / Twitter</label>
+                      <input
+                        type="text"
+                        value={profile.twitter || ""}
+                        onChange={(e) => handleInputChange("twitter", e.target.value)}
+                        placeholder="contoh: https://x.com/username atau @username"
+                        className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-zinc-700 mb-1">TikTok</label>
+                      <input
+                        type="text"
+                        value={profile.tiktok || ""}
+                        onChange={(e) => handleInputChange("tiktok", e.target.value)}
+                        placeholder="contoh: https://tiktok.com/@username atau @username"
+                        className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
+                      />
+                    </div>
                   </div>
 
                   <div>
@@ -444,7 +487,7 @@ export default function OptionsIndex() {
                       type="text"
                       value={profile.skills || ""}
                       onChange={(e) => handleInputChange("skills", e.target.value)}
-                      placeholder="TypeScript, React, Tailwind CSS, Node.js"
+                      placeholder="contoh: UIUX, Excel, Pyhton, Word"
                       className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                     />
                   </div>
@@ -455,18 +498,29 @@ export default function OptionsIndex() {
                       rows={3}
                       value={profile.summary || ""}
                       onChange={(e) => handleInputChange("summary", e.target.value)}
-                      placeholder="Ringkasan profil profesional singkat Anda..."
+                      placeholder="contoh: Saya adalah mahasiswa Software Engineering yang berdedikasi dengan fokus pada pengembangan web frontend dan UI/UX modern..."
                       className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-zinc-700 mb-1">Pengalaman Kerja / Organisasi Singkat</label>
+                    <label className="block text-xs font-medium text-zinc-700 mb-1">Pengalaman Kerja / Magang</label>
                     <textarea
                       rows={3}
-                      value={profile.experience || ""}
-                      onChange={(e) => handleInputChange("experience", e.target.value)}
-                      placeholder="Frontend Engineer di PT ABC (2023-Sekarang)..."
+                      value={profile.workExperience || ""}
+                      onChange={(e) => handleInputChange("workExperience", e.target.value)}
+                      placeholder="contoh: Frontend Developer Intern di PT ABC (Feb 2024 - Jul 2024) - Mengembangkan web dashboard internal menggunakan React dan Tailwind CSS..."
+                      className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-medium text-zinc-700 mb-1">Pengalaman Organisasi / Kepanitiaan</label>
+                    <textarea
+                      rows={3}
+                      value={profile.orgExperience || ""}
+                      onChange={(e) => handleInputChange("orgExperience", e.target.value)}
+                      placeholder="contoh: Ketua Divisi R&D Himpunan Mahasiswa (2023), Koordinator Acara National Tech Seminar (2022)..."
                       className="w-full px-3 py-2 rounded-md bg-white border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-1 focus:ring-zinc-900 transition-all"
                     />
                   </div>

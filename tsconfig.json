@@ -22,9 +22,6 @@
   "include": [
     ".plasmo/index.d.ts",
     "src/**/*",
-    "popup.tsx",
-    "options.tsx",
-    "content.ts",
     "~*"
   ]
 }

@@ -114,7 +114,8 @@ async function performAutofill(): Promise<{ filledCount: number; totalFields: nu
   let filledCount = 0
 
   for (const el of inputElements) {
-    if (el.disabled || el.readOnly || el.offsetParent === null) continue
+    const isReadOnly = "readOnly" in el ? Boolean((el as HTMLInputElement | HTMLTextAreaElement).readOnly) : false
+    if (el.disabled || isReadOnly || el.offsetParent === null) continue
 
     const contextText = extractInputContext(el)
     if (!contextText.trim()) continue
@@ -142,7 +143,7 @@ async function performAutofill(): Promise<{ filledCount: number; totalFields: nu
  * Message Listener for Popup & Background triggers
  */
 chrome.runtime.onMessage.addListener(
-  (message: AutofillMessage, _sender, sendResponse: (response: AutofillResponse) => void) => {
+  (message: AutofillMessage, _sender: chrome.runtime.MessageSender, sendResponse: (response: AutofillResponse) => void) => {
     if (message.action === "CHECK_FORM_STATUS") {
       const inputs = document.querySelectorAll("input, textarea, select")
       sendResponse({
@@ -162,10 +163,11 @@ chrome.runtime.onMessage.addListener(
             totalFields
           })
         })
-        .catch((err) => {
+        .catch((err: unknown) => {
+          const errorMessage = err instanceof Error ? err.message : "Terjadi kesalahan saat mengisi form."
           sendResponse({
             success: false,
-            message: err?.message || "Terjadi kesalahan saat mengisi form."
+            message: errorMessage
           })
         })
       return true

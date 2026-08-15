@@ -13,7 +13,7 @@ export default function PopupIndex() {
 
   useEffect(() => {
     // Check if current tab contains a form
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs: chrome.tabs.Tab[]) => {
       if (tabs[0]?.id) {
         chrome.tabs.sendMessage(
           tabs[0].id,
@@ -37,7 +37,7 @@ export default function PopupIndex() {
     setResultMessage(null)
     setIsError(false)
 
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs: chrome.tabs.Tab[]) => {
       const activeTabId = tabs[0]?.id
       if (!activeTabId) {
         setLoading(false)
@@ -83,10 +83,7 @@ export default function PopupIndex() {
       {/* Header */}
       <div className="flex items-center justify-between pb-3 mb-3 border-b border-zinc-100">
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 rounded bg-zinc-900 text-white flex items-center justify-center text-[10px] font-mono font-bold">
-            A
-          </div>
-          <span className="font-semibold text-xs text-zinc-900 tracking-tight">AutoApply</span>
+          <span className="font-semibold text-xs text-zinc-900 tracking-tight">ToFill</span>
           <span className="text-[10px] font-mono text-zinc-400 bg-zinc-100 px-1.5 py-0.5 rounded border border-zinc-200">
             v1.0
           </span>
@@ -153,17 +150,6 @@ export default function PopupIndex() {
           <span>Autofill Form Ini</span>
         )}
       </button>
-      {/* Footer */}
-      <div className="mt-3 pt-2.5 border-t border-zinc-100 flex items-center justify-between text-[11px]">
-        <span className="text-zinc-400 font-mono">100% Local</span>
-        <button
-          onClick={openOptionsPage}
-          className="text-zinc-700 hover:text-zinc-900 font-medium inline-flex items-center gap-1"
-        >
-          Kelola Profil
-          <ArrowRight className="w-3 h-3 text-zinc-400" />
-        </button>
-      </div>
     </div>
   )
 }

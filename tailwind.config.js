@@ -2,8 +2,7 @@
 module.exports = {
   content: [
     "./src/**/*.{tsx,ts,html}",
-    "./popup.tsx",
-    "./options.tsx"
+    "./*.html"
   ],
   theme: {
     extend: {

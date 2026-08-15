@@ -2,6 +2,8 @@ export interface ProfileData {
   // Personal Data
   fullName: string;
   nickname: string;
+  nik: string;
+  age: string;
   email: string;
   phone: string;
   birthPlace: string;
@@ -23,8 +25,12 @@ export interface ProfileData {
   linkedin: string;
   github: string;
   portfolio: string;
+  instagram: string;
+  twitter: string;
+  tiktok: string;
   skills: string;
-  experience: string;
+  workExperience: string;
+  orgExperience: string;
 }
 
 export interface FieldMatcher {
