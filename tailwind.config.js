@@ -25,6 +25,9 @@ module.exports = {
           50: "#fafafa"
         }
       },
+      fontFamily: {
+        sans: ['Poppins', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif']
+      },
       borderRadius: {
         'subtle': '6px',
         'card': '8px',
